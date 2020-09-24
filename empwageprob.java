@@ -3,10 +3,6 @@ import java.util.*;
 public class empwageprob {
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Computation Program");
-		empAttendance();
-	}
-	private static void empAttendance()
-	{
 		int IS_FULL_TIME = 1;
 		double empCheck = Math.floor(Math.random())%2;
 		if(empCheck == IS_FULL_TIME)
