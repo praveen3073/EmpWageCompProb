@@ -7,10 +7,11 @@ public class empwageprob {
 		final int IS_PART_TIME = 2;
 		final int EMP_RATE_PER_HOUR = 20;
 		final int NUM_OF_WORKING_DAYS = 20;
+		final int NUM_OF_WORKING_HOURS = 100;
 		int empHrs = 0;
 		int empWage = 0;
 		int totalEmpWage = 0;
-		for(int day=0;day<NUM_OF_WORKING_DAYS; day++)
+		for(int day=0, hours=0;day<NUM_OF_WORKING_DAYS && hours<100; day++)
 		{
 			int empCheck = (int) Math.floor(Math.random()*10)%3;
 			switch(empCheck)
@@ -24,6 +25,7 @@ public class empwageprob {
 				default:
 					empHrs = 0;
 			}
+			hours += empHrs;
 			empWage = empHrs * EMP_RATE_PER_HOUR;
 			totalEmpWage += empWage;
 			System.out.println("Emp Wage: " + empWage);
