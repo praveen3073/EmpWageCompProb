@@ -1,17 +1,21 @@
-import java.util.*;
+
 
 public class empwageprob {
+	static final int IS_FULL_TIME = 1;
+	static final int IS_PART_TIME = 2;
+	static final int EMP_RATE_PER_HOUR = 20;
+	static final int NUM_OF_WORKING_DAYS = 20;
+	static final int NUM_OF_WORKING_HOURS = 100;
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Computation Program");
-		final int IS_FULL_TIME = 1;
-		final int IS_PART_TIME = 2;
-		final int EMP_RATE_PER_HOUR = 20;
-		final int NUM_OF_WORKING_DAYS = 20;
-		final int NUM_OF_WORKING_HOURS = 100;
+		System.out.println("Monthly Employee Wage: " + calcMonthlyEmployeeWage());
+	}
+	public static int calcMonthlyEmployeeWage()
+	{
 		int empHrs = 0;
 		int empWage = 0;
 		int totalEmpWage = 0;
-		for(int day=0, hours=0;day<NUM_OF_WORKING_DAYS && hours<100; day++)
+		for(int day=0, hours=0;day<NUM_OF_WORKING_DAYS && hours<NUM_OF_WORKING_HOURS; day++)
 		{
 			int empCheck = (int) Math.floor(Math.random()*10)%3;
 			switch(empCheck)
@@ -30,6 +34,6 @@ public class empwageprob {
 			totalEmpWage += empWage;
 			System.out.println("Emp Wage: " + empWage);
 		}
-		System.out.println("Total Emp Wage: "+totalEmpWage);
+		return totalEmpWage;
 	}
 }
