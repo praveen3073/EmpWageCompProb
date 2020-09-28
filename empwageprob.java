@@ -1,21 +1,37 @@
-
+import java.util.*;
 
 public class empwageprob {
 	static final int IS_FULL_TIME = 1;
 	static final int IS_PART_TIME = 2;
-	static final int EMP_RATE_PER_HOUR = 20;
-	static final int NUM_OF_WORKING_DAYS = 20;
-	static final int NUM_OF_WORKING_HOURS = 100;
 	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
 		System.out.println("Welcome to Employee Wage Computation Program");
-		System.out.println("Monthly Employee Wage: " + calcMonthlyEmployeeWage());
+		System.out.print("Enter number of companies to add: ");
+		int numberOfCompanies = in.nextInt();
+		in.nextLine();
+		while(numberOfCompanies--!=0)
+		{
+			Company comp = new Company();
+			System.out.print("Enter company name: ");
+			comp.companyName = in.nextLine();
+			System.out.print("Enter total monthly working hours: ");
+			comp.TOTAL_MONTHLY_WORKING_HOURS = in.nextInt();
+			in.nextLine();
+			System.out.print("Enter total monthly working days: ");
+			comp.TOTAL_MONTHLY_WORKING_DAYS = in.nextInt();
+			in.nextLine();
+			System.out.print("Enter wage rate per hour: ");
+			comp.EMP_RATE_PER_HOUR = in.nextInt();
+			in.nextLine();
+			System.out.println("Monthly Employee Wage For Company " + comp.companyName +" : "+ calcMonthlyEmployeeWage(comp));
+		}
 	}
-	public static int calcMonthlyEmployeeWage()
+	public static int calcMonthlyEmployeeWage(Company comp)
 	{
 		int empHrs = 0;
 		int empWage = 0;
 		int totalEmpWage = 0;
-		for(int day=0, hours=0;day<NUM_OF_WORKING_DAYS && hours<NUM_OF_WORKING_HOURS; day++)
+		for(int day=1, hours=0;day<=comp.TOTAL_MONTHLY_WORKING_DAYS && hours<comp.TOTAL_MONTHLY_WORKING_HOURS; day++)
 		{
 			int empCheck = (int) Math.floor(Math.random()*10)%3;
 			switch(empCheck)
@@ -30,9 +46,9 @@ public class empwageprob {
 					empHrs = 0;
 			}
 			hours += empHrs;
-			empWage = empHrs * EMP_RATE_PER_HOUR;
+			empWage = empHrs * comp.EMP_RATE_PER_HOUR;
 			totalEmpWage += empWage;
-			System.out.println("Emp Wage: " + empWage);
+			System.out.println("Day: " + day + ", Hours worked: " + empHrs + ", Employee wage: " + empWage);
 		}
 		return totalEmpWage;
 	}
