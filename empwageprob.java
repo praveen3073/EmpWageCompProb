@@ -1,6 +1,11 @@
 import java.util.*;
 
-public class empwageprob {
+interface EmployeeWage {
+	public static int calcMonthlyEmployeeWage(Company comp) {
+		return 0;
+	}
+}
+public class empwageprob implements EmployeeWage{
 	static final int IS_FULL_TIME = 1;
 	static final int IS_PART_TIME = 2;
 	public static void main(String[] args) {
