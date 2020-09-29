@@ -4,4 +4,5 @@ public class Company {
 	public int TOTAL_MONTHLY_WORKING_DAYS = 20;
 	public int TOTAL_MONTHLY_WORKING_HOURS = 100;
 	public String companyName;
+	public int totalEmpWage;
 }
