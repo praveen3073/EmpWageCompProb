@@ -33,6 +33,9 @@ public class empwageprob implements EmployeeWage{
 			System.out.println("Monthly Employee Wage For Company " + comp.companyName +" : "+ comp.totalEmpWage);
 			companyList.add(comp);
 		}
+		System.out.print("Enter the company name to query: ");
+		String queryCompanyName = in.nextLine();
+		getTotalWageForCompany(queryCompanyName, companyList);
 		in.close();
 	}
 	public static int calcMonthlyEmployeeWage(Company comp)
@@ -61,5 +64,17 @@ public class empwageprob implements EmployeeWage{
 			comp.dailyWageList.add(dailyEmpWage);
 		}
 		return totalEmpWage;
+	}
+	public static void getTotalWageForCompany(String queryCompanyName, ArrayList<Company> companyList)
+	{
+		for(int i=0; i<companyList.size(); i++)
+		{
+			if(companyList.get(i).companyName.equals(queryCompanyName))
+			{
+				System.out.println("The total employee wage for " + queryCompanyName + " is : " + companyList.get(i).totalEmpWage);
+				return;
+			}
+		}
+		System.out.println("Company doesn't exist");
 	}
 }
