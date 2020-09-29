@@ -9,23 +9,25 @@ public class empwageprob {
 		System.out.print("Enter number of companies to add: ");
 		int numberOfCompanies = in.nextInt();
 		in.nextLine();
-		while(numberOfCompanies--!=0)
+		Company companyArray[] = new Company[numberOfCompanies]; 
+		for(int i = 0; i<numberOfCompanies; i++)
 		{
-			Company comp = new Company();
+			companyArray[i] = new Company();
 			System.out.print("Enter company name: ");
-			comp.companyName = in.nextLine();
+			companyArray[i].companyName = in.nextLine();
 			System.out.print("Enter total monthly working hours: ");
-			comp.TOTAL_MONTHLY_WORKING_HOURS = in.nextInt();
+			companyArray[i].TOTAL_MONTHLY_WORKING_HOURS = in.nextInt();
 			in.nextLine();
 			System.out.print("Enter total monthly working days: ");
-			comp.TOTAL_MONTHLY_WORKING_DAYS = in.nextInt();
+			companyArray[i].TOTAL_MONTHLY_WORKING_DAYS = in.nextInt();
 			in.nextLine();
 			System.out.print("Enter wage rate per hour: ");
-			comp.EMP_RATE_PER_HOUR = in.nextInt();
+			companyArray[i].EMP_RATE_PER_HOUR = in.nextInt();
 			in.nextLine();
-			comp.totalEmpWage = calcMonthlyEmployeeWage(comp);
-			System.out.println("Monthly Employee Wage For Company " + comp.companyName +" : "+ comp.totalEmpWage);
+			companyArray[i].totalEmpWage = calcMonthlyEmployeeWage(companyArray[i]);
+			System.out.println("Monthly Employee Wage For Company " + companyArray[i].companyName +" : "+ companyArray[i].totalEmpWage);
 		}
+		in.close();
 	}
 	public static int calcMonthlyEmployeeWage(Company comp)
 	{
