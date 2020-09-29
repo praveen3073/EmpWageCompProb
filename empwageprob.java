@@ -14,23 +14,24 @@ public class empwageprob implements EmployeeWage{
 		System.out.print("Enter number of companies to add: ");
 		int numberOfCompanies = in.nextInt();
 		in.nextLine();
-		Company companyArray[] = new Company[numberOfCompanies]; 
+		ArrayList<Company> companyList = new ArrayList<Company>();
 		for(int i = 0; i<numberOfCompanies; i++)
 		{
-			companyArray[i] = new Company();
+			Company comp = new Company();
 			System.out.print("Enter company name: ");
-			companyArray[i].companyName = in.nextLine();
+			comp.companyName = in.nextLine();
 			System.out.print("Enter total monthly working hours: ");
-			companyArray[i].TOTAL_MONTHLY_WORKING_HOURS = in.nextInt();
+			comp.TOTAL_MONTHLY_WORKING_HOURS = in.nextInt();
 			in.nextLine();
 			System.out.print("Enter total monthly working days: ");
-			companyArray[i].TOTAL_MONTHLY_WORKING_DAYS = in.nextInt();
+			comp.TOTAL_MONTHLY_WORKING_DAYS = in.nextInt();
 			in.nextLine();
 			System.out.print("Enter wage rate per hour: ");
-			companyArray[i].EMP_RATE_PER_HOUR = in.nextInt();
+			comp.EMP_RATE_PER_HOUR = in.nextInt();
 			in.nextLine();
-			companyArray[i].totalEmpWage = calcMonthlyEmployeeWage(companyArray[i]);
-			System.out.println("Monthly Employee Wage For Company " + companyArray[i].companyName +" : "+ companyArray[i].totalEmpWage);
+			comp.totalEmpWage = calcMonthlyEmployeeWage(comp);
+			System.out.println("Monthly Employee Wage For Company " + comp.companyName +" : "+ comp.totalEmpWage);
+			companyList.add(comp);
 		}
 		in.close();
 	}
