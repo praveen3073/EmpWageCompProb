@@ -37,8 +37,8 @@ public class empwageprob implements EmployeeWage{
 	}
 	public static int calcMonthlyEmployeeWage(Company comp)
 	{
-		int empHrs = 0;
-		int empWage = 0;
+		int dailyEmpHrs = 0;
+		int dailyEmpWage = 0;
 		int totalEmpWage = 0;
 		for(int day=1, hours=0;day<=comp.TOTAL_MONTHLY_WORKING_DAYS && hours<comp.TOTAL_MONTHLY_WORKING_HOURS; day++)
 		{
@@ -46,18 +46,19 @@ public class empwageprob implements EmployeeWage{
 			switch(empCheck)
 			{
 				case IS_PART_TIME: 
-					empHrs = 4;
+					dailyEmpHrs = 4;
 					break;
 				case IS_FULL_TIME:
-					empHrs = 8;
+					dailyEmpHrs = 8;
 					break;
 				default:
-					empHrs = 0;
+					dailyEmpHrs = 0;
 			}
-			hours += empHrs;
-			empWage = empHrs * comp.EMP_RATE_PER_HOUR;
-			totalEmpWage += empWage;
-			System.out.println("Day: " + day + ", Hours worked: " + empHrs + ", Employee wage: " + empWage);
+			hours += dailyEmpHrs;
+			dailyEmpWage = dailyEmpHrs * comp.EMP_RATE_PER_HOUR;
+			totalEmpWage += dailyEmpWage;
+			System.out.println("Day: " + day + ", Hours worked: " + dailyEmpHrs + ", Employee wage: " + dailyEmpWage);
+			comp.dailyWageList.add(dailyEmpWage);
 		}
 		return totalEmpWage;
 	}
