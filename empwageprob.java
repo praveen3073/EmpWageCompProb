@@ -23,7 +23,8 @@ public class empwageprob {
 			System.out.print("Enter wage rate per hour: ");
 			comp.EMP_RATE_PER_HOUR = in.nextInt();
 			in.nextLine();
-			System.out.println("Monthly Employee Wage For Company " + comp.companyName +" : "+ calcMonthlyEmployeeWage(comp));
+			comp.totalEmpWage = calcMonthlyEmployeeWage(comp);
+			System.out.println("Monthly Employee Wage For Company " + comp.companyName +" : "+ comp.totalEmpWage);
 		}
 	}
 	public static int calcMonthlyEmployeeWage(Company comp)
